@@ -1,0 +1,7 @@
+<strings>
+    <string id="AppName">CO2 Reduced</string>
+    <string id="VehicleEfficiencyTitle">Vehicle Efficiency (Miles per US gallon)</string>
+    <string id="FuelTypeTitle">Fuel Type</string>
+    <string id="FuelGasoline">Gasoline (Petrol)</string>
+    <string id="FuelDiesel">Diesel</string>
+</strings>

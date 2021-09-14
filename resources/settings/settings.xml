@@ -1,0 +1,14 @@
+<settings>
+    
+    <setting propertyKey="@Properties.VehicleEfficiency" title="@Strings.VehicleEfficiencyTitle">
+        <settingConfig type="numeric"/>
+    </setting>
+
+    <setting propertyKey="@Properties.FuelType" title="@Strings.FuelTypeTitle">
+        <settingConfig type="list">
+            <listEntry value="0">@Strings.FuelGasoline</listEntry>
+            <listEntry value="1">@Strings.FuelDiesel</listEntry>
+        </settingConfig>
+    </setting>
+
+</settings>
