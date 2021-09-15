@@ -1,0 +1,7 @@
+<resources>
+	<fitContributions>
+		<fitField id="0" displayInActivitySummary="true" displayInChart="true" 
+		sortOrder="10" precision="2" chartTitle="@Strings.LevelChartTitle" 
+		dataLabel="@Strings.LevelLabel" unitLabel="@Strings.LevelUnit" fillColor="#00E600"/>
+	</fitContributions>
+</resources>

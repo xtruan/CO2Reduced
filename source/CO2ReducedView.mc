@@ -18,6 +18,8 @@ class CO2ReducedView extends WatchUi.SimpleDataField {
 	hidden var mDistanceUnits = System.UNIT_STATUTE;
 	hidden var mDistanceUnitsString = null;
 	hidden var mCO2ReducedField = null;
+	
+	hidden var CO2_REDUCED_FIELD_ID = 0;
 
     // Set the label of the data field here.
     function initialize() {
@@ -34,7 +36,7 @@ class CO2ReducedView extends WatchUi.SimpleDataField {
         // create the custom FIT data field we want to record for CO2 reduction
         mCO2ReducedField = createField(
             "CO2 Reduced",
-            0,
+            CO2_REDUCED_FIELD_ID,
             FitContributor.DATA_TYPE_FLOAT,
             {:mesgType=>FitContributor.MESG_TYPE_RECORD, 
              :units=>mDistanceUnitsString}

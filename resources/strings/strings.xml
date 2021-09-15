@@ -4,4 +4,7 @@
     <string id="FuelTypeTitle">Fuel Type</string>
     <string id="FuelGasoline">Gasoline (Petrol)</string>
     <string id="FuelDiesel">Diesel</string>
+    <string id="LevelChartTitle">CO2 Reduced</string>
+	<string id="LevelLabel">CO2 Reduced</string>
+	<string id="LevelUnit"></string>
 </strings>
