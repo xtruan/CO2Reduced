@@ -1,10 +1,14 @@
 <strings>
     <string id="AppName">CO2 Reduced</string>
+    <string id="FieldLabel">CO2</string>
     <string id="VehicleEfficiencyTitle">Vehicle Efficiency (Miles per US gallon)</string>
     <string id="FuelTypeTitle">Fuel Type</string>
     <string id="FuelGasoline">Gasoline (Petrol)</string>
     <string id="FuelDiesel">Diesel</string>
-    <string id="LevelChartTitle">CO2 Reduced</string>
-	<string id="LevelLabel">CO2 Reduced</string>
-	<string id="LevelUnit"></string>
+    <string id="LevelChartTitleMetric">CO2 Reduced (kg)</string>
+    <string id="LevelChartTitleStatute">CO2 Reduced (lb)</string>
+	<string id="LevelLabelMetric">CO2 Reduced (kg)</string>
+	<string id="LevelLabelStatute">CO2 Reduced (lb)</string>
+	<string id="LevelUnitMetric">kg</string>
+	<string id="LevelUnitStatute">lb</string>
 </strings>

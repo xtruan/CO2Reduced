@@ -11,15 +11,16 @@ class CO2ReducedView extends WatchUi.SimpleDataField {
 	hidden var GRAMS_CO2_PER_US_GALLON_OF_GASOLINE = 8887.0;
 	hidden var GRAMS_CO2_PER_US_GALLON_OF_DIESEL = 10180.0;
 	
-	hidden var METERS_IN_A_MILE = 1609.34;
+	hidden var METERS_IN_A_MILE = 1609.344;
 	hidden var GRAMS_IN_A_KILOGRAM = 1000.0;
-	hidden var GRAMS_IN_A_POUND = 453.592;
+	hidden var GRAMS_IN_A_POUND = 453.59237;
 	
 	hidden var mDistanceUnits = System.UNIT_STATUTE;
-	hidden var mDistanceUnitsString = null;
-	hidden var mCO2ReducedField = null;
 	
-	hidden var CO2_REDUCED_FIELD_ID = 0;
+	hidden var mCO2ReducedFieldMetric = null;
+	hidden var mCO2ReducedFieldStatute = null;
+	hidden var CO2_REDUCED_FIELD_METRIC_ID = 0;
+	hidden var CO2_REDUCED_FIELD_STATUTE_ID = 1;
 
     // Set the label of the data field here.
     function initialize() {
@@ -27,24 +28,28 @@ class CO2ReducedView extends WatchUi.SimpleDataField {
         
         // set distance units from device settings
         mDistanceUnits = System.getDeviceSettings().distanceUnits;
-        if (mDistanceUnits == System.UNIT_METRIC) {
-        	mDistanceUnitsString = "kg";
-        } else /*if (mDistanceUnits == System.UNIT_STATUTE)*/ {
-        	mDistanceUnitsString = "lb";
-        }
         
-        // create the custom FIT data field we want to record for CO2 reduction
-        mCO2ReducedField = createField(
-            "CO2 Reduced",
-            CO2_REDUCED_FIELD_ID,
+        // create the custom FIT data fields we want to record for CO2 reduction
+        mCO2ReducedFieldMetric = createField(
+        	WatchUi.loadResource(Rez.Strings.LevelLabelMetric),
+            CO2_REDUCED_FIELD_METRIC_ID,
             FitContributor.DATA_TYPE_FLOAT,
             {:mesgType=>FitContributor.MESG_TYPE_RECORD, 
-             :units=>mDistanceUnitsString}
+             :units=>WatchUi.loadResource(Rez.Strings.LevelUnitMetric)}
         );
-        mCO2ReducedField.setData(0.0);
+        mCO2ReducedFieldMetric.setData(0.0);
+        
+        mCO2ReducedFieldStatute = createField(
+            WatchUi.loadResource(Rez.Strings.LevelLabelStatute),
+            CO2_REDUCED_FIELD_STATUTE_ID,
+            FitContributor.DATA_TYPE_FLOAT,
+            {:mesgType=>FitContributor.MESG_TYPE_RECORD, 
+             :units=>WatchUi.loadResource(Rez.Strings.LevelUnitStatute)}
+        );
+        mCO2ReducedFieldStatute.setData(0.0);
         
         // set CO2 label
-        label = "CO2";
+        label = WatchUi.loadResource(Rez.Strings.FieldLabel);
     }
 
     // The given info object contains all the current workout
@@ -81,15 +86,19 @@ class CO2ReducedView extends WatchUi.SimpleDataField {
         var equivalentUSGallons = elapsedDistanceMeters / metersPerUSGallon;
         var equivalentGramsCO2 = equivalentUSGallons * gramsCO2PerUSGallon;
         
+        // record fields
+        var equivalentKgCO2 = equivalentGramsCO2 / GRAMS_IN_A_KILOGRAM;
+        var equivalentLbCO2 = equivalentGramsCO2 / GRAMS_IN_A_POUND;
+        mCO2ReducedFieldMetric.setData(equivalentKgCO2);
+        mCO2ReducedFieldStatute.setData(equivalentLbCO2);
+        
         // display CO2 reduction with correct units
         if (mDistanceUnits == System.UNIT_METRIC) {
-        	var equivalentKgCO2 = equivalentGramsCO2 / GRAMS_IN_A_KILOGRAM;
-        	mCO2ReducedField.setData(equivalentKgCO2);
-        	return equivalentKgCO2.format("%.2f") + " " + mDistanceUnitsString;
+        	return equivalentKgCO2.format("%.2f") + " " + 
+        		WatchUi.loadResource(Rez.Strings.LevelUnitMetric);
         } else /*if (mDistanceUnits == System.UNIT_STATUTE)*/ {
-        	var equivalentLbCO2 = equivalentGramsCO2 / GRAMS_IN_A_POUND;
-        	mCO2ReducedField.setData(equivalentLbCO2);
-        	return equivalentLbCO2.format("%.2f") + " " + mDistanceUnitsString;
+        	return equivalentLbCO2.format("%.2f") + " " + 
+        		WatchUi.loadResource(Rez.Strings.LevelUnitStatute);
         }
     }
 
