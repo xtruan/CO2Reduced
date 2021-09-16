@@ -1,12 +1,12 @@
 <resources>
 	<fitContributions>
-		<fitField id="0" displayInActivitySummary="true" displayInChart="true" 
-			sortOrder="35" precision="2" chartTitle="@Strings.LevelChartTitleMetric" 
+		<fitField id="0" displayInActivitySummary="true"  
+			sortOrder="35" precision="2"  
 			dataLabel="@Strings.LevelLabelMetric" unitLabel="@Strings.LevelUnitMetric" 
-			fillColor="#00E600"/>
-		<fitField id="1" displayInActivitySummary="true" displayInChart="true" 
-			sortOrder="36" precision="2" chartTitle="@Strings.LevelChartTitleStatute" 
+			fillColor="#00E600" chartTitle="@Strings.LevelChartTitleMetric"/>
+		<fitField id="1" displayInActivitySummary="true"  
+			sortOrder="36" precision="2"  
 			dataLabel="@Strings.LevelLabelStatute" unitLabel="@Strings.LevelUnitStatute" 
-			fillColor="#00E600"/>
+			fillColor="#00E600" chartTitle="@Strings.LevelChartTitleStatute"/>
 	</fitContributions>
 </resources>

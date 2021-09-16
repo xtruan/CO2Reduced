@@ -34,7 +34,7 @@ class CO2ReducedView extends WatchUi.SimpleDataField {
         	WatchUi.loadResource(Rez.Strings.LevelLabelMetric),
             CO2_REDUCED_FIELD_METRIC_ID,
             FitContributor.DATA_TYPE_FLOAT,
-            {:mesgType=>FitContributor.MESG_TYPE_RECORD, 
+            {:mesgType=>FitContributor.MESG_TYPE_SESSION, 
              :units=>WatchUi.loadResource(Rez.Strings.LevelUnitMetric)}
         );
         mCO2ReducedFieldMetric.setData(0.0);
@@ -43,7 +43,7 @@ class CO2ReducedView extends WatchUi.SimpleDataField {
             WatchUi.loadResource(Rez.Strings.LevelLabelStatute),
             CO2_REDUCED_FIELD_STATUTE_ID,
             FitContributor.DATA_TYPE_FLOAT,
-            {:mesgType=>FitContributor.MESG_TYPE_RECORD, 
+            {:mesgType=>FitContributor.MESG_TYPE_SESSION, 
              :units=>WatchUi.loadResource(Rez.Strings.LevelUnitStatute)}
         );
         mCO2ReducedFieldStatute.setData(0.0);
