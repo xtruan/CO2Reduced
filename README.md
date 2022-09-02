@@ -12,5 +12,6 @@ Calculator values sourced from US EPA - https://www.epa.gov/energy/greenhouse-ga
 ***NOTE: This is a Data Field, not an Application. Please see the documentation for your device to see how to enable data fields.
 
 Changelog:
+* 1.1.0 - Added support for Edge/Handheld devices.
 * 1.0.4 - Added support for additional devices.
 * 1.0.0 - Initial release.
